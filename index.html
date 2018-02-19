@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact App</title>
+    <!-- Bootstrap -->
+    <link href="vendors/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+            <div class="global-wrapper" ng-app="myApp">
+            <!-- navigation bar -->
+            <nav class="navbar navbar-default" ng-controller="navCtrl">
+                <div class="container">
+                <div class="nav-header">
+                    <a href="#" class="navbar-brand hidden-xs">Angular JS Demo App</a>
+                    <ul class="nav navbar-nav">
+                    <li ng-repeat="navLink in nav.navItems" ng-class="{active : $index === nav.selectedIndex}">
+                        <a class="text-center" ng-click="nav.navClick($index)" ng-href="#/{{navLink}}">{{navLink}}</a>
+                    </li>
+                    </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="text-center">By Alok Panchal</a>
+                    </li>
+                    </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- navigation end -->
+            <div class="container">
+                <div class="row panel panel-primary" ng-controller="homeCtrl">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Contact list app</h2>
+                </div>
+                
+
+                <!--     contact list   	 -->
+                <div class="col-xs-12 col-sm-5 panel-body">
+                    <ul class="list-group">
+                    <li class="list-group-item"> <h4>Contacts:</h4>
+                        <input class="form-control" placeholder="Seach Your Contacts" type="text" ng-model="searchText">
+                        <contact class="list-group-item" ng-repeat="contact in contacts | orderBy: 'name' | filter: searchText "></contact>
+                    </li>
+                    </ul> 
+                </div>
+                
+                <!--   ng-view below       -->
+                <div class="col-xs-12 col-sm-7">
+                    <div class="list-group panel-body">
+                    <div ng-view></div>
+                    </div>
+                </div>
+                    
+                </div>
+            </div>
+
+            <!--      template used for the ng-repeat in the contact list        -->
+                <script type="text/ng-template" id="contact.html">
+                </script>
+            </div>
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="vendors/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+
+    <script src="src/module.js"></script>
+    <script src="src/controller/contactCtrl.js"></script>
+    <script src="src/directive/contactDir.js"></script>
+    <script src="src/service/contactService.js"></script>
+
+</body>
+
+</html>
