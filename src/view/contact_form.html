@@ -4,11 +4,11 @@
 
                     <div class="form-group">
             
-                        <p><label for="fname">First Name: </label> <input id="firstname" class="form-control" type="text" ng-model="currentContact.fisrtname"> </p>
-                        <p><label for="lname">Last Name: </label> <input id="lastname" class="form-control" type="text" ng-model="currentContact.lastname"> </p>
-                        <p><label for="email">Email:</label> <input id="email" class="form-control" type="text" ng-model="currentContact.email"> </p>
-                        <p><label for="phone">Phone Number:</label> <input id="phone" class="form-control" type="text" ng-model="currentContact.phone"> </p>
-                        <p><label for="status">Status:</label> <input id="status" class="form-control" type="checkBox" ng-model="currentContact.status"> </p>
+                        <p><label for="firstname">First Name: </label> <input id="firstname" class="form-control" type="text" ng-model="currentContact.firstname"></input> </p>
+                        <p><label for="lastname">Last Name: </label> <input id="lastname" class="form-control" type="text" ng-model="currentContact.lastname"></input> </p>
+                        <p><label for="email">Email:</label> <input id="email" class="form-control" type="text" ng-model="currentContact.email"></input> </p>
+                        <p><label for="phone">Phone Number:</label> <input id="phone" class="form-control" type="text" ng-model="currentContact.phone"></input> </p>
+                        <p><label for="status">Status:</label> <input id="status" class="form-control" type="checkBox" ng-model="currentContact.status"></input> </p>
                     </div>
                     
                     <a ng-if="path === '/add' " ng-href="#/contact-info/{{ contacts.length - 1 }}" ng-click="addContact()">
